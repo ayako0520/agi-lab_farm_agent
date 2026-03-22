@@ -2,6 +2,8 @@
 
 フォーク元: [KaishuShito/agi-lab-skills-marketplace](https://github.com/KaishuShito/agi-lab-skills-marketplace)
 
+**作品の解説（背景・データの流れ・Skill の役割）**: [解説.md](解説.md)
+
 ## このリポジトリがすること（1 行）
 
 **圃場の「場所＋作物」を入れると、気象・Sentinel-2 NDVI・（任意で）JAXA の降水・土壌水分までまとめた単一 HTML ダッシュボードを生成する Python ツールと、それを開発・実行するときに Claude Code が頼れる Skill プラグインを提供する。**
