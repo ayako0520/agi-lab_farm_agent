@@ -23,7 +23,7 @@
 
 **marketplace 名**は `.claude-plugin/marketplace.json` の `name`（`agi-lab-farm-agent`）です。変更した場合は `@` の右側も合わせてください。
 
-**メール**: `marketplace.json` と `plugin.json` の `your-email@example.com` を公開してよいアドレスに置き換えてください。
+**連絡先**: `happymom.kyoto@gmail.com`（`marketplace.json` / `plugin.json` の `owner`・`author` と同じ）
 
 ## ローカルで marketplace を試す
 
