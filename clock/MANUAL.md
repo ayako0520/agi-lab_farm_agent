@@ -7,14 +7,14 @@
 ## 必要なもの
 - Node.js / npm（インストール済みであること）
 
-## ファイル構成
+## ファイル構成（`AILecture/clock/`）
 - `index.html`: 画面（`dist/clock.js` を読み込み）
 - `clock.ts`: 時計ロジック（TypeScript）
 - `tsconfig.json`: TypeScript のビルド設定
 - `dist/clock.js`: ビルド生成物（自動生成）
 
 ## 1) 依存関係のインストール（初回だけ）
-プロジェクトのフォルダ（`AILecture`）で次を実行します。
+ターミナルで **`AILecture/clock` に移動してから** 次を実行します。
 
 ```bash
 npm install
@@ -56,8 +56,8 @@ Stop-Process -Id $pid -Force
 
 ## よくあるトラブル
 ### `http://127.0.0.1:5173/index.html` が 404 になる
-- `AILecture` 直下に `index.html` があるか確認してください。
-- サーバーの起動ディレクトリが `AILecture` になっているか確認してください（別フォルダで `npm run start` すると別の場所を配信します）。
+- `AILecture/clock` に `index.html` があるか確認してください。
+- サーバーの起動ディレクトリが **`AILecture/clock`** になっているか確認してください（別フォルダで `npm run start` すると別の場所を配信します）。
 
 ### 画面は出るが時計が動かない
 - 先に `npm run build` を実行して `dist/clock.js` が生成されているか確認してください。
