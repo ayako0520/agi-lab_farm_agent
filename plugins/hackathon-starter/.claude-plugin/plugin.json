@@ -3,7 +3,10 @@
   "description": "圃場の場所と作物から気象・NDVI・任意で JAXA をまとめた HTML レポートを扱う farm_agent 向け Skill",
   "version": "1.0.0",
   "author": {
-    "name": "YOUR_GITHUB_USERNAME",
+    "name": "ayako0520",
     "email": "your-email@example.com"
-  }
+  },
+  "homepage": "https://github.com/ayako0520/agi-lab_farm_agent",
+  "license": "MIT",
+  "keywords": ["agriculture", "farm", "ndvi", "hackathon"]
 }

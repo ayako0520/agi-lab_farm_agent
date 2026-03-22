@@ -1,11 +1,15 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "ailecture-farm-marketplace",
-  "version": "1.0.0",
-  "description": "圃場向け farm_agent（気象・Sentinel NDVI・JAXA 補完・HTML ダッシュボード）用 Claude Code プラグイン",
+  "name": "agi-lab-farm-agent",
+  "version": "1.1.0",
+  "description": "圃場ダッシュボード farm_agent 提出用プラグインと、フォーク元の terminal-vibes（ターミナル遊び）",
   "owner": {
-    "name": "YOUR_GITHUB_USERNAME",
+    "name": "ayako0520",
     "email": "your-email@example.com"
+  },
+  "metadata": {
+    "description": "AGI Lab ハッカソン fork: farm_dashboard plugin + 元 marketplace の遊び plugin",
+    "version": "1.1.0"
   },
   "plugins": [
     {
@@ -13,7 +17,16 @@
       "description": "farm_agent リポジトリでダッシュボードを開発・実行するときの Skill（CLI・環境変数・主要ファイル）",
       "version": "1.0.0",
       "source": "./plugins/hackathon-starter",
-      "category": "productivity"
+      "category": "productivity",
+      "tags": ["agriculture", "hackathon", "farm", "ndvi"]
+    },
+    {
+      "name": "terminal-vibes",
+      "source": "./plugins/terminal-vibes",
+      "description": "Spinning ASCII donuts, cat art, dad jokes, and Matrix rain. Pure terminal fun, no API keys needed.",
+      "version": "1.1.0",
+      "category": "fun",
+      "tags": ["entertainment", "ascii-art", "terminal", "break-time"]
     }
   ]
 }

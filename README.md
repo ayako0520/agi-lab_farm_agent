@@ -1,4 +1,6 @@
-# AILecture — farm_agent & Claude Code Plugin
+# agi-lab_farm_agent — 圃場ダッシュボード（farm_agent）提出用
+
+フォーク元: [KaishuShito/agi-lab-skills-marketplace](https://github.com/KaishuShito/agi-lab-skills-marketplace)
 
 ## このリポジトリがすること（1 行）
 
@@ -9,32 +11,26 @@
 | パス | 内容 |
 |------|------|
 | `farm_agent/` | **本体**（CLI、HTML レポート、GEE / Open-Meteo / JAXA など） |
-| `.claude-plugin/marketplace.json` | Claude Code 用 **marketplace** 定義 |
-| `plugins/hackathon-starter/` | **プラグイン 1 つ分**（`skills/starter-guide/SKILL.md` が核） |
+| `.claude-plugin/marketplace.json` | Claude Code 用 **marketplace**（提出 plugin + `terminal-vibes`） |
+| `plugins/hackathon-starter/` | **farm-dashboard-plugin**（`skills/starter-guide/SKILL.md`） |
+| `plugins/terminal-vibes/` | フォーク元のターミナル遊び plugin（任意） |
 
-> フォーク元が `plugins/hackathon-starter` のままでも提出可。中身は上記 Skill に差し替え済みです。
-
-## Claude Code でのインストール（審査・第三者向け）
-
-リポジトリを **公開**したあと、GitHub の `ユーザー名/リポジトリ名` に合わせて実行します。
+## Claude Code でのインストール
 
 ```text
-/plugin marketplace add <your-github-user>/<your-repo>
-/plugin install farm-dashboard-plugin@ailecture-farm-marketplace
+/plugin marketplace add ayako0520/agi-lab_farm_agent
+/plugin install farm-dashboard-plugin@agi-lab-farm-agent
 ```
 
-**提出前に直す場所**
+**marketplace 名**は `.claude-plugin/marketplace.json` の `name`（`agi-lab-farm-agent`）です。変更した場合は `@` の右側も合わせてください。
 
-- `.claude-plugin/marketplace.json` の `name`（例: `ailecture-farm-marketplace` を自分の識別しやすい名前に）
-- 同ファイルと `plugins/hackathon-starter/.claude-plugin/plugin.json` の `owner` / `author`（`YOUR_GITHUB_USERNAME` 等）
-
-marketplace 名は **`@` の右側**に使われます。プラグイン名は `farm-dashboard-plugin`（`marketplace.json` の `plugins[].name` と `plugin.json` の `name` と揃えてあります）。
+**メール**: `marketplace.json` と `plugin.json` の `your-email@example.com` を公開してよいアドレスに置き換えてください。
 
 ## ローカルで marketplace を試す
 
 ```text
-/plugin marketplace add /path/to/このリポジトリのルート
-/plugin install farm-dashboard-plugin@ailecture-farm-marketplace
+/plugin marketplace add /path/to/agi-lab_farm_agent
+/plugin install farm-dashboard-plugin@agi-lab-farm-agent
 ```
 
 ## farm_agent のセットアップと実行
@@ -52,12 +48,10 @@ copy .env.example .env   # 編集して EARTHENGINE_PROJECT などを設定
 python -m farm_agent.cli "住所または地名" 作物名 --pretty
 ```
 
-生成物: **`farm_agent/reports/latest.html`**（既定でブラウザが開く）
+**入力 → 出力**
 
-**入力 → 出力の対応**
-
-- **入力**: 第 1 引数＝住所・地名または `緯度,経度`、第 2 引数＝作物名。オプションで `--jaxa` / `--llm-agent` / `--pretty` など。
-- **出力**: 標準出力（または Rich）の要約 ＋ **HTML ダッシュボード**（気象、NDVI、地図、管理提案、条件により JAXA カード）。
+- **入力**: 住所・地名または `緯度,経度`、作物名。オプションで `--jaxa` / `--llm-agent` / `--pretty` など。
+- **出力**: ターミナル要約 ＋ **`farm_agent/reports/latest.html`**（気象、NDVI、地図、管理提案、条件により JAXA カード）。
 
 **南緯・西経の例**
 
@@ -67,14 +61,32 @@ python -m farm_agent.cli --llm-agent --pretty --location="-34.60,-58.38" --crop 
 
 ## デモ動画・スクリーンショット
 
-- **デモ動画（3 分以内）**: （提出時にここに YouTube または Loom 等の URL を貼る）
-- **スクリーンショット**: `reports/latest.html` をブラウザで開いた画面（Sentinel 青カード / JAXA 橙カードが分かるとよい）
-
-## ライセンス・免責
-
-- 各データソース（OpenStreetMap、Open-Meteo、Google Earth Engine、JAXA 等）の利用条件に従ってください。
-- 出力は参考情報です。栽培判断は現地確認と専門家の判断を優先してください。
+- **デモ動画（3 分以内）**: （提出時に URL を貼る）
+- **スクリーンショット**: ブラウザで `latest.html` を表示（Sentinel 青カード / JAXA 橙カードが分かるとよい）
 
 ## Plugin の制約（Claude Code）
 
-プラグインインストール時にコピーされるのは **`plugins/hackathon-starter/` 以下**です。Python 本体は **`farm_agent/`** にあるため、**リポジトリ全体をクローン**してから CLI を実行してください。Skill はその前提でエージェントを導きます。
+`plugin install` でコピーされるのは **各 plugin ディレクトリのみ**です。Python 本体は **`farm_agent/`** にあるため、**リポジトリ全体をクローン**してから CLI を実行してください。
+
+## 同梱の terminal-vibes（フォーク元・任意）
+
+息抜き用。同じ marketplace からインストールできます。
+
+```text
+/plugin install terminal-vibes@agi-lab-farm-agent
+```
+
+| Command | 内容 |
+|---------|------|
+| `/vibes` | ランダムで 1 つ |
+| `/vibes donut` | ASCII ドーナツ など |
+
+元の marketplace で試す場合: [kaishushito/agi-lab-skills-marketplace](https://github.com/KaishuShito/agi-lab-skills-marketplace) の README を参照。
+
+## ライセンス
+
+MIT（フォーク元に準拠）
+
+## 免責
+
+各データソースの利用条件に従ってください。出力は参考情報であり、栽培判断は現地確認と専門家の判断を優先してください。
