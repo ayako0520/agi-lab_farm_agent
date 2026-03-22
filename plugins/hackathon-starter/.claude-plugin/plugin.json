@@ -1,0 +1,9 @@
+{
+  "name": "farm-dashboard-plugin",
+  "description": "圃場の場所と作物から気象・NDVI・任意で JAXA をまとめた HTML レポートを扱う farm_agent 向け Skill",
+  "version": "1.0.0",
+  "author": {
+    "name": "YOUR_GITHUB_USERNAME",
+    "email": "your-email@example.com"
+  }
+}
