@@ -1,0 +1,8 @@
+httpx>=0.27.0
+geopy>=2.4.1
+earthengine-api>=0.1.404
+python-dotenv>=1.0.1
+rich>=13.7.0
+
+# Optional JAXA 補完（FARM_AGENT_USE_JAXA=1 のとき）:
+#   pip install --extra-index-url https://data.earth.jaxa.jp/api/python/repository/ jaxa-earth
