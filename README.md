@@ -11,9 +11,8 @@
 | パス | 内容 |
 |------|------|
 | `farm_agent/` | **本体**（CLI、HTML レポート、GEE / Open-Meteo / JAXA など） |
-| `.claude-plugin/marketplace.json` | Claude Code 用 **marketplace**（提出 plugin + `terminal-vibes`） |
+| `.claude-plugin/marketplace.json` | Claude Code 用 **marketplace**（提出 plugin のみ） |
 | `plugins/hackathon-starter/` | **farm-dashboard-plugin**（`skills/starter-guide/SKILL.md`） |
-| `plugins/terminal-vibes/` | フォーク元のターミナル遊び plugin（任意） |
 
 ## Claude Code でのインストール
 
@@ -67,21 +66,6 @@ python -m farm_agent.cli --llm-agent --pretty --location="-34.60,-58.38" --crop 
 ## Plugin の制約（Claude Code）
 
 `plugin install` でコピーされるのは **各 plugin ディレクトリのみ**です。Python 本体は **`farm_agent/`** にあるため、**リポジトリ全体をクローン**してから CLI を実行してください。
-
-## 同梱の terminal-vibes（フォーク元・任意）
-
-息抜き用。同じ marketplace からインストールできます。
-
-```text
-/plugin install terminal-vibes@agi-lab-farm-agent
-```
-
-| Command | 内容 |
-|---------|------|
-| `/vibes` | ランダムで 1 つ |
-| `/vibes donut` | ASCII ドーナツ など |
-
-元の marketplace で試す場合: [kaishushito/agi-lab-skills-marketplace](https://github.com/KaishuShito/agi-lab-skills-marketplace) の README を参照。
 
 ## ライセンス
 
