@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>シンプル時計</title>
+    <style>
+      :root {
+        --bg1: #081028;
+        --bg2: #230a4a;
+        --bg3: #0b3a6d;
+        --fg: #e8edf7;
+        --muted: rgba(232, 237, 247, 0.75);
+        --glass: rgba(255, 255, 255, 0.07);
+        --glassBorder: rgba(255, 255, 255, 0.14);
+        --neon1: #7c3aed;
+        --neon2: #22d3ee;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP",
+          "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+        color: var(--fg);
+        background:
+          radial-gradient(1000px 650px at 20% 20%, rgba(124, 58, 237, 0.35), transparent 55%),
+          radial-gradient(900px 620px at 80% 30%, rgba(34, 211, 238, 0.28), transparent 55%),
+          radial-gradient(900px 700px at 50% 90%, rgba(59, 130, 246, 0.22), transparent 60%),
+          linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3));
+        background-size: 160% 160%;
+        animation: bgMove 12s ease-in-out infinite;
+        overflow: hidden;
+      }
+
+      @keyframes bgMove {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 0%; }
+      }
+
+      .card {
+        position: relative;
+        padding: 34px 44px 28px;
+        border-radius: 18px;
+        background: var(--glass);
+        border: 1px solid var(--glassBorder);
+        box-shadow:
+          0 22px 80px rgba(0, 0, 0, 0.45),
+          0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.9), rgba(34, 211, 238, 0.9));
+        opacity: 0.55;
+        filter: blur(14px);
+        z-index: -1;
+      }
+
+      #date {
+        font-size: 15px;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      #clock {
+        font-size: 60px;
+        letter-spacing: 0.07em;
+        font-variant-numeric: tabular-nums;
+        text-shadow:
+          0 0 18px rgba(34, 211, 238, 0.28),
+          0 0 42px rgba(124, 58, 237, 0.22);
+      }
+
+      #clock .sec {
+        display: inline-block;
+        min-width: 2.2ch;
+        color: rgba(232, 237, 247, 0.92);
+        text-shadow:
+          0 0 14px rgba(34, 211, 238, 0.35),
+          0 0 40px rgba(34, 211, 238, 0.18);
+      }
+
+      #clock.pulse .sec {
+        animation: secPulse 320ms ease-out;
+      }
+
+      @keyframes secPulse {
+        0% { transform: translateY(0) scale(1); filter: brightness(1); }
+        35% { transform: translateY(-1px) scale(1.05); filter: brightness(1.25); }
+        100% { transform: translateY(0) scale(1); filter: brightness(1); }
+      }
+
+      .hint {
+        margin-top: 12px;
+        opacity: 0.78;
+        font-size: 13px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div id="date" aria-label="今日の日付">----/--/--（-）</div>
+      <div id="clock" aria-label="現在時刻">--:--:--</div>
+      <div class="hint">1秒ごとに更新</div>
+    </div>
+    <script type="module" src="./dist/clock.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.local
+*.pem
+
+# Python
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Generated reports (任意: コミットしたい場合はこの行を消す)
+farm_agent/report.html
